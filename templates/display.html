@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>问题列表</title>
+	<link rel="stylesheet" href="{{static_url("css/bootstrap.min.css")}}" />
+	<link rel="stylesheet" href="{{static_url("css/display.css")}}" />
+</head>
+<body>
+	<h1 class="header">
+		欢迎使用问题列表系统!
+	</h1>
+
+	<div class="container">
+		<div class="row">
+			{# 第一块 #}
+			<div class="col-sm-4">
+				<div class="panel panel-default panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">
+							添加问题
+						</h3>
+					</div>
+					<div class="panel-body">
+						<form class="bs-example bs-example-form" role="form" method="POST" action="/display">
+							<div class="input-group">
+								<span class="input-group-addon">问题</span>
+								<input type="text" class="form-control" name='theme' placeholder="请输入关键词">
+							</div>
+							<br>
+							<div class="form-group">
+								<label for="name">详细描述</label>
+								<textarea class="form-control" rows="10" style="resize: none;" name="detail"></textarea>
+							</div>
+							<br>
+							<div class="input-group pull-right">
+								<p><input type="submit" class="btn btn-default btn-sm" value="提交问题"></p>
+							</div>
+							<input type="text" name="action" value="add" hidden="hidden">
+						</form>
+					</div>
+				</div>
+			</div>
+
+			{# 第二块 #}
+			<div class="col-sm-8">
+				<div class="panel panel-primary">
+					<div class="panel-heading">
+						<h3 class="panel-title">本人提交问题列表</h3>
+					</div>
+					<div class="panel-body">
+						{% for question in allQuestion %}
+							<div class='questionList'>
+								<a href="/question?qid={{question['pid']}}"><span>{{question['question']}}</span></a>
+								<hr>
+								<span>{{question['detail']}}</span>
+							</div>
+						{% end %}
+					</div>
+				</div>
+			</div>
+
+		<script type="text/javascript" src="{{static_url("js/jquery-3.1.0.js")}}"></script>
+		<script type="text/javascript" src="{{static_url("js/bootstrap.min.js")}}"></script>
+	</body>
+	</html>

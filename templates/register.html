@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>注册页</title>
+	<link rel="stylesheet" href="{{static_url("css/bootstrap.min.css")}}" />
+</head>
+<body style="background-color: green;">
+	<div style="margin: 0 auto; width: 800px; height: 200px;"></div>
+	<div style="margin: 0 auto; width: 800px;">
+		<form class="bs-example bs-example-form" role="form" method="POST" action="/register">
+			<div class="input-group">
+				<span class="input-group-addon">@</span>
+				<input type="text" class="form-control" name='email' placeholder="请输入邮箱">
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon">用户名</span>
+				<input type="text" class="form-control" name='username'>
+			</div>
+			<br>
+			<div class="input-group">
+				<span class="input-group-addon">密码</span>
+				<input type="text" class="form-control" name='password'>
+			</div>
+			<br>
+			<div class="input-group pull-right">
+				<p><input type="submit" class="btn btn-default btn-sm" value="提交"></p>
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript" src="{{static_url("js/bootstrap.min.js")}}"></script>
+</body>
+</html>
